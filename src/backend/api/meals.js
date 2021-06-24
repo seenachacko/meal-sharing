@@ -18,11 +18,12 @@ router.get("/", async (request, response) => {
     } else if ("availableReservations" in request.query) {
       const availableReservations = request.query.availableReservations;
       if (availableReservations === "true") {
-        const filteredMeals = await knex.raw(`select meal.id, meal.title, meal.max_reservations, coalesce(SUM(reservation.number_of_guests), 0) AS total_reservations
+        const filteredMeals = await knex.raw(`select meal.id AS meal_id, meal.title, meal.max_reservations, coalesce(SUM(reservation.number_of_guests), 0) AS total_reservations
     from meal
     left join reservation on meal.id = reservation.meal_id
     group by meal.id
-    having meal.max_reservations > total_reservations`).then(result => result[0]);
+    having 
+    meal.max_reservations > total_reservations`).then(result => result[0]);
 
         response.send(filteredMeals);
       }
@@ -49,7 +50,7 @@ router.get("/", async (request, response) => {
       const limitedMeals = await knex("meal").limit(limit);
       response.json(limitedMeals);
     } else {
-      const titles = await knex("meal").select("title");
+      const titles = await knex("meal");
       response.json(titles);
     }
 

@@ -1,3 +1,165 @@
 * {
     box-sizing: border-box;
+    
+}
+.header-container{
+    background-color: rgba(33,37,41,.6);
+    width: 100%;
+    height: 10%;
+    color:white;
+    align-items: center;
+    position: fixed;
+  
+  }
+  
+  .logo{
+    font-family:cursive;
+    font-style: oblique;
+    width: 5%;
+    margin-top: 3%;
+    margin-left: 1%;
+  }
+  
+  .nav-ul{
+    display:flex;
+    justify-content: space-evenly;
+    width: 20%;
+    float:right;
+    
+  }
+  .nav-ul li{
+    font-family:cursive;
+    font-style: oblique;
+    color: #fff;
+    font-size: 1.2rem;
+    
+  }
+   .nav-ul li:hover{
+     background-color: rgb(155, 155, 155);
+     width: 90px;
+     height: 40px;
+     text-align: center;
+     border-radius: 5px;
+   }
+.bgimage{
+background-repeat: no-repeat;
+background-size: cover;
+padding-top: 10px;
+height: 100%;
+    
+}
+.heading{
+  margin: 20%;
+  color: white;
+  font-family:cursive;
+    font-style: oblique;
+}
+
+
+
+.meals-container{
+    padding-top: 100px;
+    font-family:cursive;
+    align-items: center;
+    font-style: oblique;
+    color: white;
+    background-color:black;
+}
+
+
+.meals-container h1{
+     text-align: center;
+     padding: 10px;
+     color: white;
+     background-color: black;
+    
+}
+.search-field{
+    float: right;
+    margin-right: 3%;
+    
+}
+.search-field input{
+
+   border-radius: 5px;
+   border:2px solid rgb(242, 242, 243)
+}
+.display-container-ul{
+  padding:20px;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content:space-evenly;
+ 
+}
+
+.meal{
+  width: 250px;
+  margin:20px;
+  text-align: center;
+  color: rgb(240, 8, 143);
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  padding: 5px;
+}
+.meal-image{
+  width:200px;
+  height: 200px;
+  border-radius: 5px;
+}
+.meal-withid-container{
+  padding-top: 100px;
+  padding-right: 10%;
+  line-height: 30px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  color: white;
+  background-color: black;
+  text-align: center;
+
+}
+.meal-withid-container img{
+  width: 40%;
+  height: 40%;
+
+}
+.meal-title{
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+.details{
+  width: 70%;
+  border-radius: 5px;
+  margin-left: 15%;
+}
+.reservation-form,.review-form,.reviews{
+  background-color: black;
+  color: white;
+  align-items: center;
+  text-align: right;
+  width: 50%;
+}
+
+.add-meal{
+  padding-top: 100px;
+  text-align: center;
+  background-color: black;
+  color: white;
+  height: 100%;
+}
+.form{
+  line-height: 50px;
+  text-align: right;
+  width: 55%;
+}
+.back-button{
+  background-color: white;
+  color: #f10372;
+}
+
+.reviews p{
+  border-bottom: 1px solid white;
+  text-align: center;
 }

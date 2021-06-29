@@ -1,4 +1,3 @@
-const { response, request } = require("express");
 const express = require("express");
 const router = express.Router();
 const knex = require("../database");
@@ -15,7 +14,7 @@ router.get("/", async (request, response) => {
       response.json(MaxPriceMeals);
       return;
     } else if ("availableReservations" in request.query) {
-      const availableReservations = request.query.availableReservations;
+     let availableReservations = request.query.availableReservations;
       if (availableReservations === "true") {
         const filteredMeals = await knex
           .raw(
@@ -59,7 +58,7 @@ router.get("/", async (request, response) => {
       const limitedMeals = await knex("meal").limit(limit);
       response.json(limitedMeals);
     } else {
-      const titles = await knex("meal");
+      const titles = await knex("meal").select();
       response.json(titles);
     }
   } catch (error) {

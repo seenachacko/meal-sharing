@@ -67,9 +67,13 @@ router.get("/", async (request, response) => {
 });
 
 router.post("/", async (request, response) => {
-  console.log(request.body);
-  const insertingMeals = await knex("meal").insert(request.body);
-  response.json(insertingMeals);
+  try{
+    const insertingMeals = await knex("meal").insert(request.body);
+    response.json(insertingMeals);
+  }catch(error){
+    throw error;
+  }
+ 
 });
 
 router.get("/:id", async (request, response) => {

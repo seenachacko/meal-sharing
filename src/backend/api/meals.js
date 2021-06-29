@@ -1,47 +1,56 @@
+const { response, request } = require("express");
 const express = require("express");
 const router = express.Router();
 const knex = require("../database");
 
 router.get("/", async (request, response) => {
   try {
-    if ('maxPrice' in request.query) {
+    if ("maxPrice" in request.query) {
       const maxPrice = parseInt(request.query.maxPrice);
       if (isNaN(maxPrice)) {
         response.status(400).send({ error: "maxPrice should be an integer" });
         return;
       }
-      const MaxPriceMeals = await knex('meal')
-        .where("price", "<=", maxPrice)
+      const MaxPriceMeals = await knex("meal").where("price", "<=", maxPrice);
       response.json(MaxPriceMeals);
-      return
-
+      return;
     } else if ("availableReservations" in request.query) {
       const availableReservations = request.query.availableReservations;
       if (availableReservations === "true") {
-        const filteredMeals = await knex.raw(`select meal.id AS meal_id, meal.title, meal.max_reservations, coalesce(SUM(reservation.number_of_guests), 0) AS total_reservations
+        const filteredMeals = await knex
+          .raw(
+            `select meal.id AS meal_id, meal.title, meal.max_reservations, coalesce(SUM(reservation.number_of_guests), 0) AS total_reservations
     from meal
     left join reservation on meal.id = reservation.meal_id
     group by meal.id
     having 
-    meal.max_reservations > total_reservations`).then(result => result[0]);
+    meal.max_reservations > total_reservations`
+          )
+          .then((result) => result[0]);
 
         response.send(filteredMeals);
       }
-    } else if ('title' in request.query) {
+    } else if ("title" in request.query) {
       const title = request.query.title.toLowerCase();
-      const mealByTitle = await knex("meal")
-        .where("meal.title", "like", "%" + title + "%");
+      const mealByTitle = await knex("meal").where(
+        "meal.title",
+        "like",
+        "%" + title + "%"
+      );
       response.json(mealByTitle);
-    } else if ('createdAfter' in request.query) {
+    } else if ("createdAfter" in request.query) {
       const createdAfter = new Date(request.query.createdAfter);
       if (!createdAfter.getDate()) {
-        response.status(404).send('must be a valid date.');
+        response.status(404).send("must be a valid date.");
         return;
       }
-      const mealByDate = await knex("meal")
-        .where("created_date", ">=", createdAfter)
+      const mealByDate = await knex("meal").where(
+        "created_date",
+        ">=",
+        createdAfter
+      );
       response.json(mealByDate);
-    } else if ('limit' in request.query) {
+    } else if ("limit" in request.query) {
       const limit = parseInt(request.query.limit);
       if (isNaN(limit)) {
         res.status(400).send({ error: "limit should be an integer" });
@@ -53,7 +62,6 @@ router.get("/", async (request, response) => {
       const titles = await knex("meal");
       response.json(titles);
     }
-
   } catch (error) {
     throw error;
   }
@@ -69,14 +77,12 @@ router.get("/:id", async (request, response) => {
   try {
     const id = parseInt(request.params.id);
     if (isNaN(id)) {
-      response.status(404).send('User IDs should be integers.');
+      response.status(404).send("User IDs should be integers.");
       return;
     } else {
-      const mealById = await knex("meal")
-        .where("id", id);
+      const mealById = await knex("meal").where("id", id);
       response.json(mealById);
     }
-
   } catch (error) {
     throw error;
   }
@@ -86,15 +92,12 @@ router.put("/:id", async (request, response) => {
   try {
     const id = parseInt(request.params.id);
     if (isNaN(id)) {
-      response.status(404).send('User IDs should be integers.');
+      response.status(404).send("User IDs should be integers.");
       return;
     } else {
-      const meals = await knex("meal").where({ id: id })
-        .update(request.body);
+      const meals = await knex("meal").where({ id: id }).update(request.body);
       response.json(meals);
-
     }
-
   } catch (error) {
     throw error;
   }
@@ -103,17 +106,13 @@ router.put("/:id", async (request, response) => {
 router.delete("/:id", async (request, response) => {
   try {
     const id = parseInt(request.params.id);
-        if (isNaN(id)) {
-      response.status(404).send('User IDs should be integers.');
+    if (isNaN(id)) {
+      response.status(404).send("User IDs should be integers.");
       return;
     } else {
-      const mealDeleting = await knex("meal")
-        .delete()
-        .where({ id: id })
+      const mealDeleting = await knex("meal").delete().where({ id: id });
       response.json("meal has been updated");
-
     }
-
   } catch (error) {
     throw error;
   }

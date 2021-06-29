@@ -9,45 +9,25 @@ function Meals() {
   useEffect(() => {
     if (input === "") {
       fetch("/api/meals")
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            throw new Error("Something went wrong ...");
-          }
-        })
+        .then((response) => response.json())
         .then((data) => {
           setIsLoading(false);
           setMealItems(data);
         })
-        .catch((error) => {
-          setError(error);
-          setIsLoading(false);
-        });
     } else {
-      setIsLoading(true);
       fetch(`/api/meals?title=${input}`)
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            throw new Error("Something went wrong ...");
-          }
-        })
+        .then((response) =>response.json())
         .then((data) => {
           setIsLoading(false);
           setMealItems(data);
         })
-        .catch((error) => {
-          setError(error);
-          setIsLoading(false);
-        });
     }
   }, [input]);
 
   return (
     <div className="meals-container">
-      <div className="search-field">
+      {isLoading ? <div> Loading </div> : <>
+        <div className="search-field">
         <input
           type="text"
           placeholder="search"
@@ -72,7 +52,9 @@ function Meals() {
           <br />
         </ul>
       </div>
-    </div>
+    
+      </>}
+      </div>
   );
 }
 export default Meals;

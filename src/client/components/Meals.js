@@ -1,33 +1,42 @@
 import React, { useEffect, useState } from "react";
 import DisplayMeal from "./DisplayMeal";
+import Inputbox from "./Inputbox";
 function Meals() {
   const [input, setInput] = useState([]);
   const [mealItems, setMealItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const fetchMeals = (api) => {
+    fetch(api)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Something went wrong ...");
+        }
+      })
+      .then((data) => {
+        setIsLoading(false);
+        setMealItems(data);
+      })
+      .catch((error) => {
+        setError(error);
+        setIsLoading(false);
+      });
+  };
+
   useEffect(() => {
     if (input === "") {
-      fetch("/api/meals")
-        .then((response) => response.json())
-        .then((data) => {
-          setIsLoading(false);
-          setMealItems(data);
-        })
+      fetchMeals("/api/meals");
     } else {
-      fetch(`/api/meals?title=${input}`)
-        .then((response) =>response.json())
-        .then((data) => {
-          setIsLoading(false);
-          setMealItems(data);
-        })
+      fetchMeals(`/api/meals?title=${input}`);
     }
   }, [input]);
 
   return (
     <div className="meals-container">
-      {isLoading ? <div> Loading </div> : <>
-        <div className="search-field">
+      <div className="search-field">
         <input
           type="text"
           placeholder="search"
@@ -39,9 +48,9 @@ function Meals() {
       <div>
         <h1>Meals</h1>
         <ul className="display-container-ul">
-        {error && <div>{error.message}</div>}
-        {error === null && isLoading && <div> Loading...</div>}
-        {mealItems.length === 0 && <div>No meals found</div>}
+          {error && <div>{error.message}</div>}
+          {error === null && isLoading && <div> Loading...</div>}
+          {mealItems.length === 0 && <div>No meals found</div>}
           {mealItems.map((meal) => {
             return (
               <li key={meal.id}>
@@ -52,9 +61,7 @@ function Meals() {
           <br />
         </ul>
       </div>
-    
-      </>}
-      </div>
+    </div>
   );
 }
 export default Meals;

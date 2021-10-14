@@ -26,6 +26,7 @@ function ReviewForm({ idOfMeal }) {
   return (
     <div className="review-form">
       <h2>Review Form</h2>
+      <div className="form">
       <label>
         title :
         <input
@@ -64,6 +65,7 @@ function ReviewForm({ idOfMeal }) {
       </label>
       <br />
       <button onClick={handleAddReview}>Submit</button>
+    </div>
     </div>
   );
 }

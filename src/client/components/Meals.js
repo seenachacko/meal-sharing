@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import DisplayMeal from "./DisplayMeal";
-import Inputbox from "./Inputbox";
 function Meals() {
   const [input, setInput] = useState([]);
   const [mealItems, setMealItems] = useState([]);
@@ -36,28 +35,33 @@ function Meals() {
 
   return (
     <div className="meals-container">
-      <div className="search-field">
+      
         <input
+         className ="search-field"
           type="text"
           placeholder="search"
           name="search Meal"
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
-      </div>
+
       <div>
         <h1>Meals</h1>
         <ul className="display-container-ul">
           {error && <div>{error.message}</div>}
-          {error === null && isLoading && <div> Loading...</div>}
-          {mealItems.length === 0 && <div>No meals found</div>}
-          {mealItems.map((meal) => {
-            return (
-              <li key={meal.id}>
-                <DisplayMeal meal={meal}></DisplayMeal>
-              </li>
-            );
-          })}
+          {isLoading ? (
+            <div> Loading...</div>
+          ) : mealItems.length === 0 ? (
+            <div>No meals found</div>
+          ) : (
+            mealItems.map((meal) => {
+              return (
+                <li key={meal.id}>
+                  <DisplayMeal meal={meal}></DisplayMeal>
+                </li>
+              );
+            })
+          )}
           <br />
         </ul>
       </div>

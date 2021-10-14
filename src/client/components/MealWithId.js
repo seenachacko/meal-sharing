@@ -14,7 +14,6 @@ function MealWithId() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const mealId = useParams();
-  console.log(mealId.id);
   useEffect(() => {
     fetch(`/api/meals?availableReservations=true`)
       .then((response) => {
@@ -75,19 +74,20 @@ function MealWithId() {
   };
   return (
     <div className="meal-withid-container">
-      <div>
-        <span className="meal-title">{mealWithId.title}</span>
+      <span className="meal-title">{mealWithId.title}</span>
+      <div className ="meal-detail">
+        
         <br />
         {error && <div>{error.message}</div>}
         {error === null && isLoading && <div> Loading...</div>}
         <div>
-          <img src={image1} alt="mealpic" className="meal-image" /> <br />
+          <img src={image1} alt="mealpic" className="single-meal-image" /> <br />
           <div className="details">
             {mealWithId.description}
             <br />
             Place :{mealWithId.location}
             <br />
-            price :{mealWithId.price}kr
+            price :{mealWithId.price} kr
             <br />
           </div>
           <button onClick={handleReservation}>Make Reservation</button>

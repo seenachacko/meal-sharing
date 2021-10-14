@@ -30,7 +30,7 @@ a {
 
 button {
   background-color: #f10372;
-  border-radius: 8px;
+  border-radius: 5px;
   border-width: 0px;
   font-weight: bolder;
   margin: 10px;
@@ -38,13 +38,17 @@ button {
   padding: 10px;
   font-size: 17px;
 }
-
+button:hover{
+  cursor: pointer;
+  border-width: 1px;;
+}
+/* 
 @media screen and (max-width: 1400px) {
   #root {
     padding-left: 30%;
     padding-right: 30%;
   }
-}
+} */
 
 @media screen and (max-width: 750px) {
   #root {

@@ -39,9 +39,10 @@ function ReservationForm({ idOfMeal, array }) {
   return (
     <div className="reservation-form">
       <h2>Reservation Form</h2>
-      <h3>*remember only :{avilableSeats} seats left</h3>
-      <label>
-        Name :
+      <h3>*remember only : {avilableSeats} seats left</h3>
+      <div className="form">
+        <label>Name</label>
+        <br />
         <input
           type="text"
           id="myname"
@@ -50,10 +51,9 @@ function ReservationForm({ idOfMeal, array }) {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-      </label>
-      <br />
-      <label>
-        Phone number :
+        <br />
+        <label>Phone number :</label>
+        <br />
         <input
           type="tel"
           placeholder="phone number"
@@ -61,10 +61,10 @@ function ReservationForm({ idOfMeal, array }) {
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
         />
-      </label>
-      <br />
-      <label>
-        Email :
+
+        <br />
+        <label>Email</label>
+        <br />
         <input
           type="email"
           placeholder="email"
@@ -72,10 +72,10 @@ function ReservationForm({ idOfMeal, array }) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-      </label>
-      <br />
-      <label>
-        number of guests :
+
+        <br />
+        <label>number of guests</label>
+        <br />
         <input
           type="number"
           placeholder="number of guests"
@@ -83,9 +83,10 @@ function ReservationForm({ idOfMeal, array }) {
           value={numberOfGuest}
           onChange={(e) => setNumberOfGuest(e.target.value)}
         />
-      </label>
-      <br />
-      <button onClick={handleAddReservation}>Submit</button>
+         <br />
+        <br />
+        <button onClick={handleAddReservation}>Submit</button>
+      </div>
     </div>
   );
 }

@@ -9,18 +9,18 @@ function DisplayMeal({ meal }) {
       .then((response) => response.json())
       .then((data) => setReviews(data));
   };
-  console.log(review);
 useEffect(() => {
   fetchReviewsData();
 }, [])
 
   return (
     <div className="meal">
-      <Link to={`/meals/${meal.id}`}>
-        <img src={image1} alt="mealpic" className="meal-image"/><br/><b>{meal.title}</b></Link>
+      <Link to={`/meals/${meal.id}`} style={{ color: '#190552 ' }}>
+        <img src={image1} alt="mealpic" className="meal-image"/><br/><b>{meal.title}</b>
       <br />
       {meal.location}
       <br />
+      </Link>
     </div>
   );
 }

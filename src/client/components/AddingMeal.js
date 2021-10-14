@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import postData from "./postData";
+import background from "../assets/images/bg.png"
 
 function AddingMeal() {
   const [title, setTitle] = useState("");
@@ -13,7 +14,8 @@ function AddingMeal() {
   const [maxReservations, setMaxReservations] = useState("");
   const date = new Date().toISOString().substring(0, 10);
 
-  function handleAddmeal() {
+  function handleAddmeal(event) {
+    event.preventDefault();
     const newMeal = {
       title: title,
       description: description,
@@ -23,6 +25,7 @@ function AddingMeal() {
       price: price,
       created_date: date,
     };
+    
     const response = postData("api/meals", newMeal);
     if (response) {
       alert(`Thank You, Your Meal : ${newMeal.title} Added`);
@@ -32,9 +35,10 @@ function AddingMeal() {
   }
 
   return (
-    <div className="add-meal">
-      <h2>Add a meal</h2>
-      <div className="form">
+    <div className="bgimage add-meal" style={{ backgroundImage: `url(${background})` }}>
+      
+      <div className="form adding-meal-form">
+        <h3>You can add your meals here .....</h3>
         <label>
           title :
           <input
@@ -70,12 +74,13 @@ function AddingMeal() {
         <br />
         <label>
           When :
-          <DatePicker
+        </label><br/>
+        <DatePicker
             selected={when}
             onChange={(date) => setWhen(date)}
+            minDate ={new Date()}
             dateFormat="yyyy/MM/dd"
           />
-        </label>
         <br />
         <label>
           price :

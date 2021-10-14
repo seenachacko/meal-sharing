@@ -1,7 +1,7 @@
 import React,{useState,useEffect}from 'react'
 
 function CheckReviews({idOfMeal}) {
-    const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [reviews,SetReviews]=useState([]);
     useEffect(() => {  
@@ -37,8 +37,8 @@ function CheckReviews({idOfMeal}) {
              {error === null && isLoading && <div> Loading...</div>}
              {mealReviews.length===0 &&<div> sorry, this meal has no reviews yet.</div>}
             
-               {mealReviews.map(item=>{
-                   return(<p key={item.id}>{item.title}<br/>{item.description}<br/>Rating: {item.stars}<br/> Date: {item.created_date.substring(0, 10)}</p>)
+               {mealReviews.map((item, index)=>{
+                   return(<p key={item.id}>{index+1}: {item.title}<br/>{item.description}<br/>Rating: {item.stars}<br/> Date: {item.created_date.substring(0, 10)}</p>)
                    
                })}
               

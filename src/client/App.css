@@ -2,6 +2,25 @@
     box-sizing: border-box;
     
 }
+input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  border-bottom-color: white;
+  caret-color: white;
+  color: #fff;
+  font-size:20px ;
+  background-color: none;
+}
+
+input:focus {
+  outline: none;
+}
+::placeholder {
+  color: white;
+ 
+}
 .header-container{
     background-color: rgba(33,37,41,.6);
     width: 100%;
@@ -51,14 +70,17 @@
   height: 100%;
       
   }
+  
   .heading{
-    margin: 20%;
+    margin: 10%;
     color: white;
     font-family:cursive;
       font-style: oblique;
   }
   
-  
+  .stars{
+    margin-left: 20px;
+  }
   
   .meals-container{
       padding-top: 100px;
@@ -97,24 +119,19 @@
   }
   
   .meal{
-    border: 1px solid rgb(243, 242, 242) ;
-    box-shadow:7px 7px rgb(204, 201, 201);
-    width: 250px;
-    margin:20px;
+    box-shadow:5px 5px rgb(230, 228, 228);
+    border-radius: 10px;
+    width: 20em;
+    height: 25em;
+    margin:30px;
     text-align: center;
-    background-color: rgb(243, 240, 240);
-    border-radius: 5px;
-    padding: 10px;
   }
   .meal:hover{
-    width: 255px;
-    border: 1px solid rgb(53, 52, 52) ;
     box-shadow:5px 5px rgb(53, 52, 52);
   }
   .meal-image{
-    width:13em;
-    height: 200px;
-    border: 5px solid rgb(255, 255, 255) ;
+    width:100%;
+    height:70%;
     border-radius: 10px;
   }
   .meal-withid-container{
@@ -154,9 +171,12 @@
     border-radius: 5px;
     margin-left: 15%;
   }
-  .reservation-form,.review-form,.reviews{
+  
+  .reservation-form,.review-form,.reviews,.adding-meal-form{
     margin-top: 2%;
+    padding: 2%;
     margin-left: 4%;
+    line-height: 2rem;
     color: white;
     border:2px solid black;
     border-radius: 10px;
@@ -165,14 +185,15 @@
     width: 96%;
     height: 100%;
   }
-  .reservation-form input,.review-form input,.adding-meal-form input{
+  .reservation-form input,.review-form input{
     width: 100%;
+    background-color: grey;
   }
+  
   .add-meal{
     padding-top: 40px;
     text-align: left;
-    background-color: rgb(176, 233, 255);
-    color: rgb(2, 2, 2);
+    color: rgb(255, 255, 255);
     height: 100%;
   }
   
@@ -185,26 +206,25 @@
     border-bottom: 1px solid white;
     text-align: center;
   }
-  .form{
-    width: 100%;
-    line-height: 2rem;
-    text-align: left;
-    padding: 2%;
-  
-  }
-  .form input{
-    border-radius: 8px;
-    height: 1.5rem;
-  }
+ 
   .reviews p{
     border-bottom: 2px solid black;
   }
   
   .adding-meal-form{
+    margin-top: 7%;
     width: 60%;
-   
-    
+    font-size: 20px;
+    height: 80%;
+    font-weight: bold;
+    line-height: 55px;
+    background-color: rgba(33,37,41,.6);
   }
+  .adding-meal-form input{
+    width: 100%;
+    background-color: rgba(85, 90, 95, 0.6);
+  }
+
 @media (max-width : 990px){
   .navigation{
     display: none;

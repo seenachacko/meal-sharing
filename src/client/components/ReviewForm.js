@@ -27,8 +27,7 @@ function ReviewForm({ idOfMeal }) {
     <div className="review-form">
       <h2>Review Form</h2>
       <div className="form">
-      <label>
-        title :
+      
         <input
           type="text"
           id="title"
@@ -37,10 +36,9 @@ function ReviewForm({ idOfMeal }) {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-      </label>
-      <br />
-      <label>
-        description:
+     
+      <br/>
+      <br/> 
         <input
           type="text"
           id="description"
@@ -49,20 +47,20 @@ function ReviewForm({ idOfMeal }) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-      </label>
+  
       <br />
-      <label>
-        Give a rating(*1-5) :
+      <br />
         <input
           type="number"
           id="rating"
           min="1"
           max="5"
+          placeholder="Give a rating(*1-5)"
           name="rating"
           value={rating}
           onChange={(e) => setRating(e.target.value)}
         />
-      </label>
+   <br />
       <br />
       <button onClick={handleAddReview}>Submit</button>
     </div>

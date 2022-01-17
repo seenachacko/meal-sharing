@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DisplayMeal from "./DisplayMeal";
+import background from "../assets/images/mealsbg.png"
 function Meals() {
   const [input, setInput] = useState([]);
   const [mealItems, setMealItems] = useState([]);
@@ -34,7 +35,9 @@ function Meals() {
   }, [input]);
 
   return (
+   // <div className="bgimage" style={{ backgroundImage: `url(${background})` }}> 
     <div className="meals-container">
+     
       
         <input
          className ="search-field"
@@ -66,6 +69,7 @@ function Meals() {
         </ul>
       </div>
     </div>
+    
   );
 }
 export default Meals;

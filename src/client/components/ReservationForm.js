@@ -41,7 +41,6 @@ function ReservationForm({ idOfMeal, array }) {
       <h2>Reservation Form</h2>
       <h3>*remember only : {avilableSeats} seats left</h3>
       <div className="form">
-        <label>Name</label>
         <br />
         <input
           type="text"
@@ -52,7 +51,6 @@ function ReservationForm({ idOfMeal, array }) {
           onChange={(e) => setName(e.target.value)}
         />
         <br />
-        <label>Phone number :</label>
         <br />
         <input
           type="tel"
@@ -63,7 +61,6 @@ function ReservationForm({ idOfMeal, array }) {
         />
 
         <br />
-        <label>Email</label>
         <br />
         <input
           type="email"
@@ -74,7 +71,6 @@ function ReservationForm({ idOfMeal, array }) {
         />
 
         <br />
-        <label>number of guests</label>
         <br />
         <input
           type="number"

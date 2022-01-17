@@ -1,5 +1,5 @@
 import React,{useState,useEffect}from 'react'
-
+import ReactStars from "react-rating-stars-component";
 function CheckReviews({idOfMeal}) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -23,9 +23,7 @@ function CheckReviews({idOfMeal}) {
             });
         
       }, []);
-    console.log(reviews);
       const mealReviews=reviews.filter(item=>item.meal_id===idOfMeal);
-      console.log(mealReviews);
       
       
       
@@ -38,7 +36,16 @@ function CheckReviews({idOfMeal}) {
              {mealReviews.length===0 &&<div> sorry, this meal has no reviews yet.</div>}
             
                {mealReviews.map((item, index)=>{
-                   return(<p key={item.id}>{index+1}: {item.title}<br/>{item.description}<br/>Rating: {item.stars}<br/> Date: {item.created_date.substring(0, 10)}</p>)
+                   return(<p key={item.id}>{index+1}: {item.title}<br/>{item.description}<br/>
+                   <ReactStars
+            classNames="stars"
+          count={5}
+          size={34}
+          edit={false}
+          value={item.stars}
+          activeColor="#8f5909"
+        />
+                    Date: {item.created_date.substring(0, 10)}</p>)
                    
                })}
               

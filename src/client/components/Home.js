@@ -4,7 +4,8 @@ function Home() {
   return (
     <div className="bgimage" style={{ backgroundImage: `url(${background})` }}>
       <div className="heading">
-        <h1>Find your taste . . . .</h1>
+        <h1>Find your taste & Enjoy delicious cuisine</h1>
+        <p></p>
       </div>
     </div>
   );

@@ -1,3 +1,265 @@
 * {
     box-sizing: border-box;
+    
 }
+input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  border-bottom-color: white;
+  caret-color: white;
+  color: #fff;
+  font-size:20px ;
+  background-color: none;
+}
+
+input:focus {
+  outline: none;
+}
+::placeholder {
+  color: white;
+ 
+}
+.header-container{
+    background-color: rgba(33,37,41,.6);
+    width: 100%;
+    height: 10%;
+    color:white;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    position: fixed;
+  
+  }
+  
+  .logo{
+    font-family:cursive;
+    font-style: oblique;
+    width: 15%;
+    margin-left: 1%;
+  }
+  .nav-bar{
+    width: 50%;
+  }
+  .nav-ul{
+    display:flex;
+    justify-content: space-evenly;
+    width: 60%;
+    float:right;
+    
+  }
+  .nav-ul li{
+    font-family:cursive;
+    font-style: oblique;
+    color: #fff;
+    font-size: 1.2rem;
+    
+  }
+   .nav-ul li:hover{
+     border-bottom: 2px solid rgb(243, 237, 237);
+   }
+  .mobile-navigation{
+   display: none;
+ }
+ 
+.bgimage{
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 10px;
+  height: 100%;
+      
+  }
+  
+  .heading{
+    margin: 10%;
+    color: white;
+    font-family:cursive;
+      font-style: oblique;
+  }
+  
+  .stars{
+    margin-left: 20px;
+  }
+  
+  .meals-container{
+      padding-top: 100px;
+      font-family:cursive;
+      font-style: oblique;
+      color: black;
+      background-color:rgb(255, 255, 255);
+  }
+  
+  
+  .meals-container h1{
+       text-align: center;
+       padding: 5px;
+       margin-top: 3rem;
+       color:rgba(23, 24, 54, 0.753);
+      
+  }
+  .search-field{
+      float: right;
+      margin-right: 5%;
+      width :15rem;
+      height:2rem;
+      border: 2px solid  rgb(243, 242, 242);
+      border-radius: 10px;
+      
+  }
+  .search-field input{
+  
+     border-radius: 5px;
+     border:2px solid rgb(242, 242, 243)
+  }
+  .display-container-ul{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content:space-evenly;
+  }
+  
+  .meal{
+    box-shadow:5px 5px rgb(230, 228, 228);
+    border-radius: 10px;
+    width: 20em;
+    height: 25em;
+    margin:30px;
+    text-align: center;
+  }
+  .meal:hover{
+    box-shadow:5px 5px rgb(53, 52, 52);
+  }
+  .meal-image{
+    width:100%;
+    height:70%;
+    border-radius: 10px;
+  }
+  .meal-withid-container{
+    padding-top: 100px;
+    padding-right: 4%;
+    line-height: 30px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    background-color:white;
+    text-align: center;
+  
+  }
+  .meal-detail{
+   margin-left: 4%;
+  }
+  
+  .meal-detail img{
+    width: 100%;
+   height: 20%;
+    border-radius: 10px;
+    
+  
+  }
+  
+  .meal-title{
+    font-weight: bolder;
+    font-size: 30px;
+    margin: 1%;
+  }
+  
+  .details{
+    width: 70%;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-left: 15%;
+  }
+  
+  .reservation-form,.review-form,.reviews,.adding-meal-form{
+    margin-top: 2%;
+    padding: 2%;
+    margin-left: 4%;
+    line-height: 2rem;
+    color: white;
+    border:2px solid black;
+    border-radius: 10px;
+    background-color: grey;
+    align-items: center;
+    width: 96%;
+    height: 100%;
+  }
+  .reservation-form input,.review-form input{
+    width: 100%;
+    background-color: grey;
+  }
+  
+  .add-meal{
+    padding-top: 40px;
+    text-align: left;
+    color: rgb(255, 255, 255);
+    height: 100%;
+  }
+  
+  .back-button{
+    background-color: rgb(197, 191, 191);
+    color: #f10372;
+  }
+  
+  .reviews p{
+    border-bottom: 1px solid white;
+    text-align: center;
+  }
+ 
+  .reviews p{
+    border-bottom: 2px solid black;
+  }
+  
+  .adding-meal-form{
+    margin-top: 7%;
+    width: 60%;
+    font-size: 20px;
+    height: 80%;
+    font-weight: bold;
+    line-height: 55px;
+    background-color: rgba(33,37,41,.6);
+  }
+  .adding-meal-form input{
+    width: 100%;
+    background-color: rgba(85, 90, 95, 0.6);
+  }
+
+@media (max-width : 990px){
+  .navigation{
+    display: none;
+  }
+  .mobile-navigation{
+    display: flex;
+    align-items: center;
+    
+  }
+  .hamburger{
+    position: absolute;
+    right: 5%;
+    cursor: pointer;
+
+  }
+  .nav-ul{
+    display:felx;
+    flex-direction: column;
+    position:absolute;
+    top: 100%;
+    background-color: rgba(17, 21, 24, 0.6);
+    right:0;
+    width:100%;
+    border-top: white 2px solid;
+  }
+  .nav-ul li{
+    padding-left: 15%;
+  }
+  .nav-ul li:hover{
+    border-bottom: none;
+    color: rgb(231, 222, 87);
+  }
+  .logo{
+    width: 50%;
+  
+  }
+}
+

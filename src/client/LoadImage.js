@@ -1,9 +1,8 @@
 import React from "react";
 import biriyani from "./assets/images/chickenbiriyani.png";
-import fishfry from "./assets/images/fishfry.png";
 import pasta from "./assets/images/pasta.png";
 import pizza from "./assets/images/pizza.png";
-//import chickenbbq from "./assets/images/chickenbbq.png";
+import fish from "./assets/images/fish.png"
 import chickenbbq from "./assets/images/chickengrill.png"
 import beafsteak from "./assets/images/beafsteak.png";
 import rødgrød from "./assets/images/rødgrød.png";
@@ -22,7 +21,7 @@ const lookup = [
     categories:"chicken biriyani",
   },
   {
-    path: fishfry,
+    path: fish,
     categories:"fish fry",
   },
   {
@@ -39,6 +38,7 @@ const lookup = [
   },
 ];
 function LoadImage({ title }) {
+  console.log(title)
     const mealTtile=title.toLowerCase();
     let category = lookup.find((item) => item.categories.includes(mealTtile.trim()));
    

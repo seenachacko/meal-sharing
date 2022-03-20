@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReservationForm from "./ReservationForm";
 import ReviewForm from "./ReviewForm";
 import image1 from "../assets/images/splah.png";
+import LoadImage from "../LoadImage";
 import { useParams, Link } from "react-router-dom";
 import CheckReviews from "./CheckReviews";
 function MealWithId() {
@@ -76,11 +77,17 @@ function MealWithId() {
     <div className="meal-withid-container">
       <div className="meal-detail">
         <span className="meal-title">{mealWithId.title}</span>
+       
         <br /> <br />
         {error && <div>{error.message}</div>}
         {error === null && isLoading && <div> Loading...</div>}
         <div>
-          <img src={image1} alt="mealpic" className="single-meal-image" />{" "}
+        {mealWithId.title ? (
+        <LoadImage title={mealWithId.title} />
+      ) : (
+        ""
+      )}
+          
           <br />
           <div className="details">
             {mealWithId.description}

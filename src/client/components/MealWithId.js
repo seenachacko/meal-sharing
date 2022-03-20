@@ -10,7 +10,7 @@ function MealWithId() {
   const [reserveStatus, setReserveStatus] = useState(true);
   const [form, setForm] = useState(false);
   const [reviewForm, setReviewForm] = useState(false);
-  const [reviews, setReviews] = useState(false);
+  const [reviews, setReviews] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const mealId = useParams();
@@ -74,14 +74,14 @@ function MealWithId() {
   };
   return (
     <div className="meal-withid-container">
-      <span className="meal-title">{mealWithId.title}</span>
-      <div className ="meal-detail">
-        
-        <br />
+      <div className="meal-detail">
+        <span className="meal-title">{mealWithId.title}</span>
+        <br /> <br />
         {error && <div>{error.message}</div>}
         {error === null && isLoading && <div> Loading...</div>}
         <div>
-          <img src={image1} alt="mealpic" className="single-meal-image" /> <br />
+          <img src={image1} alt="mealpic" className="single-meal-image" />{" "}
+          <br />
           <div className="details">
             {mealWithId.description}
             <br />

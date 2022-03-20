@@ -180,7 +180,7 @@ input:focus {
   border-radius: 10px;
   background-color: grey;
   align-items: center;
-  width: 96%;
+  width: 50%;
   height: 100%;
 }
 .reservation-form input,
